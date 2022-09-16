@@ -56,80 +56,44 @@ public class CalculateArea {
     }
 
     public static void calculateCircleArea() {
-
-        BigDecimal radius = ZERO;
-
-        // Get input from user
-        Scanner keyboard = new Scanner(System.in);
         System.out.print("What is the circle's radius? ");
-        radius = BigDecimal.valueOf(keyboard.nextDouble());
-
-        while (radius.compareTo(ZERO) <= 0) {
-            System.out.println("Please enter positive value!");
-            radius = BigDecimal.valueOf(keyboard.nextDouble());
-        }
+        BigDecimal radius = enterValue();
 
         // Display output
-        System.out.println("The circle's area is "
-                + Geometry.areaOfCircle(radius));
+        System.out.println("The circle's area is " + Geometry.areaOfCircle(radius));
     }
 
     public static void calculateRectangleArea() {
-        BigDecimal length = ZERO;
-        BigDecimal width = ZERO;
-
-        // Get input from user
-        Scanner keyboard = new Scanner(System.in);
-
-        // Get length
         System.out.print("Enter length? ");
-        length = BigDecimal.valueOf(keyboard.nextDouble());
+        BigDecimal length = enterValue();
 
-        while (length.compareTo(ZERO) <= 0) {
-            System.out.println("Please enter positive value!");
-            length = BigDecimal.valueOf(keyboard.nextDouble());
-        }
-
-        // Get width
         System.out.print("Enter width? ");
-        width = BigDecimal.valueOf(keyboard.nextDouble());
+        BigDecimal width = enterValue();
 
-        while (width.compareTo(ZERO) <= 0) {
-            System.out.println("Please enter positive value!");
-            width = BigDecimal.valueOf(keyboard.nextDouble());
-        }
         // Display output
         System.out.println("The rectangle's area is "
                 + Geometry.areaOfRectangle(length, width));
     }
 
     public static void calculateTriangleArea() {
-        BigDecimal base = ZERO;
-        BigDecimal height = ZERO;
-
-        // Get input from user
-        Scanner keyboard = new Scanner(System.in);
-
-        // Get the base
         System.out.print("Enter length of the triangle's base? ");
-        base = BigDecimal.valueOf(keyboard.nextDouble());
+        BigDecimal base = enterValue();
 
-        while (base.compareTo(ZERO) <= 0) {
-            System.out.println("Please enter positive value!");
-            base = BigDecimal.valueOf(keyboard.nextDouble());
-        }
-
-        // Get the height
         System.out.print("Enter triangle's height? ");
-        height = BigDecimal.valueOf(keyboard.nextDouble());
-
-        while (height.compareTo(ZERO) <= 0) {
-            System.out.println("Please enter positive value!");
-            height = BigDecimal.valueOf(keyboard.nextDouble());
-        }
+        BigDecimal height = enterValue();
 
         // Display the triangle's area.
         System.out.println("The triangle's area is "
                 + Geometry.areaOfTriangle(base, height));
+    }
+
+    public static BigDecimal enterValue() {
+        Scanner keyboard = new Scanner(System.in);
+        BigDecimal valueToCheck = keyboard.nextBigDecimal();
+        while (valueToCheck.compareTo(ZERO) <= 0) {
+            System.out.println("Please enter positive value!");
+            valueToCheck = keyboard.nextBigDecimal();
+        }
+        return valueToCheck;
     }
 }
