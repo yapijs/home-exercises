@@ -2,7 +2,6 @@ package io.codelex.loops.practice;
 
 import java.util.Random;
 import java.util.Scanner;
-import java.util.random.RandomGenerator;
 
 public class RollTwoDice {
     public static void main(String[] args) {

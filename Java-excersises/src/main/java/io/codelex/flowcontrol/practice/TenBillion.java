@@ -9,10 +9,7 @@ public class TenBillion {
         Scanner in = new Scanner(System.in);
         System.out.print("Input an integer number less than ten billion: ");
 
-        long n = in.nextLong(); //this is always long type
-
-        //todo - check if Long
-        //if (n) {  -> why?
+        long n = in.nextLong();
 
         if (n < 0) {
             n *= -1;
@@ -42,9 +39,5 @@ public class TenBillion {
             }
             System.out.println("Number of digits in the number: " + digits);
         }
-//        } else {
-//            System.out.println("The number is not a long");
-//        }
     }
-
 }

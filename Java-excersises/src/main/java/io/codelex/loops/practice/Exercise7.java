@@ -15,11 +15,10 @@ public class Exercise7 {
         System.out.println("Welcome to Piglet!");
         Random random = new Random();
         Scanner scanner = new Scanner(System.in);
-//        InputStream input = new InputStream(text);
-//        DataInputStream in = new DataInputStream(input);
         boolean continueGame = true;
         int score = 0;
         boolean notLost = true;
+
         do {
             int number = random.nextInt(6) + 1;
             System.out.println("You rolled a " + number + "!");
