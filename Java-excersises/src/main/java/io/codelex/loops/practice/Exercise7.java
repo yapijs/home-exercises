@@ -30,7 +30,7 @@ public class Exercise7 {
                 score += number;
                 System.out.println("Roll again?");
                 String text = scanner.nextLine();
-                if (text.isEmpty() || text.toLowerCase().equals("no") || text.toLowerCase().equals("false") || text.toLowerCase().equals("n")) {
+                if (willRollAgain(text)) {
                     continueGame = false;
                 }
             }
@@ -41,5 +41,9 @@ public class Exercise7 {
         } else {
             System.out.println("You got " + score + " points.");
         }
+    }
+
+    public static boolean willRollAgain(String input) {
+        return input.isEmpty() || input.toLowerCase().equals("no") || input.toLowerCase().equals("false") || input.toLowerCase().equals("n");
     }
 }

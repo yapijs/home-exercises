@@ -6,13 +6,12 @@ import java.util.Scanner;
 public class RollTwoDice {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        Random random = new Random();
 
         System.out.println("Desired sum: ");
         int desiredSum = scanner.nextInt();
         while (true) {
-            int number1 = random.nextInt(1, 7);
-            int number2 = random.nextInt(1, 7);
+            int number1 = rollDice();
+            int number2 = rollDice();
             int sum = number1 + number2;
             System.out.println(number1 + " and " + number2 + " = " + sum);
             if (sum == desiredSum) {
@@ -20,4 +19,9 @@ public class RollTwoDice {
             }
         }
     }
+
+    public static int rollDice() {
+        return new Random().nextInt(1, 7);
+    }
+
 }
