@@ -32,31 +32,19 @@ public class FlightPlanner {
 
         System.out.println("What would you like to do:");
         System.out.println("To display list of cities press 1");
-        String input = validateInput();
-        if (input.equals("1")) {
+        String menu = validateInput(true);
+        if (menu.equals("1")) {
             System.out.println("Select number of starting city");
 
-            List<String> possibleDestinationsList = returnListOfCities(null);
-            printListOfAvailableCities(possibleDestinationsList);
-
-            int index = convertIndex(validateInput());
-            route.add(possibleDestinationsList.get(index));
-            String newStartLocation = route.get(route.size()-1);
+            String newStartLocation = getNewCity(null, route);
             initialStartingPoint = newStartLocation;
-            System.out.println(route);
+
             while(true) {
                 System.out.println("\nYou would be in " + newStartLocation);
                 System.out.println("Select the next destination");
 
-                possibleDestinationsList = returnListOfCities(newStartLocation);
-                printListOfAvailableCities(possibleDestinationsList);
-
-                index = convertIndex(validateInput());
-                String newDestination = possibleDestinationsList.get(index);
-                route.add(newDestination);
-                newStartLocation = newDestination;
-
-                if (newDestination.equals(initialStartingPoint)) {
+                newStartLocation = getNewCity(newStartLocation, route);
+                if (newStartLocation.equals(initialStartingPoint)) {
                     break;
                 }
             }
@@ -65,13 +53,27 @@ public class FlightPlanner {
         }
     }
 
-    private static String validateInput() {
+    private static String getNewCity(String start, List<String> route) {
+        List<String> possibleDestinationsList = returnListOfCities(start);
+        printListOfAvailableCities(possibleDestinationsList);
+
+        int index = convertIndex(validateInput(false));
+        String city = possibleDestinationsList.get(index);
+        route.add(city);
+        return city;
+    }
+
+    private static String validateInput(boolean isAtStart) {
         Scanner scanner = new Scanner(System.in);
         while(true) {
             String in = scanner.nextLine();
-            if (in.equals("#")) {
-                return in;
+
+            if (isAtStart) {
+                if (in.equals("#")) {
+                    return in;
+                }
             }
+
             Pattern p = Pattern.compile("^\\d+$");
             Matcher m = p.matcher(in);
             if (m.find()) {
@@ -112,20 +114,9 @@ public class FlightPlanner {
         }
         return cities;
     }
-
-    //private static String returnNewDestination(List<String> )
-
     private static void printListOfAvailableCities(List<String> list) {
         for (int i = 0; i < list.size(); i++) {
             System.out.println(i + 1 + ". " + list.get(i));
         }
     }
-
-//    private static void selectNextDestination() {
-//
-//    }
-//
-//    private static void addNextDestination(int i, List<String> availableLocations, List<String> destinations) {
-//        destinations.add(availableLocations.get(i-1));
-//    }
 }
