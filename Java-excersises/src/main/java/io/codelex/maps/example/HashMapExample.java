@@ -1,4 +1,4 @@
-package io.codelex.maps.example;
+package io.codelex.maps.practice.example;
 
 import java.util.HashMap;
 import java.util.Map;
