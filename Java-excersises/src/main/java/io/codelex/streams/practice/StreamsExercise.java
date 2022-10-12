@@ -68,11 +68,11 @@ public class StreamsExercise {
     }
 
     public static Integer getMaxAge(List<User> users) {
-        return users.stream().max(Comparator.comparing(User::getAge)).get().getAge();
+        return users.stream().max(Comparator.comparing(User::getAge)).map(User::getAge).orElse(0);
     }
 
     public static Integer getMinAge(List<User> users) {
-        return users.stream().min(Comparator.comparing(User::getAge)).get().getAge();
+        return users.stream().min(Comparator.comparing(User::getAge)).map(User::getAge).orElse(0);
     }
 
     public static Map<Boolean, List<User>> partitionUsersByGender(List<User> users) {
@@ -133,7 +133,7 @@ public class StreamsExercise {
     }
 
     public static User findOldest(List<User> users) {
-        return users.stream().max(Comparator.comparing(User::getAge)).get();
+        return users.stream().max(Comparator.comparing(User::getAge)).orElse(null);
     }
 
     public static int sumAge(List<User> users) {
