@@ -1,9 +1,7 @@
 package io.other.java_advanced_test.exercise3;
 
 import java.util.List;
-import java.util.function.Consumer;
-import java.util.function.Function;
-import java.util.function.Supplier;
+import java.util.stream.Collectors;
 
 /*Design the Joiner<T> class, which in the constructor will take a separator (string) and have a join() method
 that allows you to specify any number of T-type objects. This method will return a string joining all passed elements
@@ -12,14 +10,20 @@ Write a test for the class.
 e.g. for Integers and separator "-" it should return: 1-2-3-4 ...*/
 public class Joiner<T> {
     private String seperator;
-    private Function<List<T>, String> myFunction;
+    private String joinedString = "";
 
-    public Joiner(String separator, Function<List<T>, String> function) {
+    public Joiner(String separator) {
         this.seperator = separator;
-        this.myFunction = function;
     }
 
-//    public String joiner() {
-//         return myFunction.apply();
-//    }
+    public void joiner(List<T> listOfElements) {
+         joinedString = listOfElements.stream()
+                 .map(Object::toString)
+                 .collect(Collectors.joining(seperator));
+    }
+
+    @Override
+    public String toString() {
+        return joinedString;
+    }
 }
