@@ -21,9 +21,8 @@ public class JoinerTest {
         list.add("manually");
 
         Joiner<String> joiner = new Joiner<>("_");
-        joiner.joiner(list);
 
-        Assertions.assertEquals("I_enjoy_writing_tests_better_than_testing_manually",joiner.toString());
+        Assertions.assertEquals("I_enjoy_writing_tests_better_than_testing_manually", joiner.join(list));
     }
 
 
@@ -35,9 +34,8 @@ public class JoinerTest {
         list.add(0);
 
         Joiner<Integer> joiner = new Joiner<>("!");
-        joiner.joiner(list);
 
-        Assertions.assertEquals("2!5!0",joiner.toString());
+        Assertions.assertEquals("2!5!0", joiner.join(list));
     }
 
 }
