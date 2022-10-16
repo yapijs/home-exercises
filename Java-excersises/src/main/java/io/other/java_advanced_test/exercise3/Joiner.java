@@ -10,20 +10,14 @@ Write a test for the class.
 e.g. for Integers and separator "-" it should return: 1-2-3-4 ...*/
 public class Joiner<T> {
     private String seperator;
-    private String joinedString = "";
 
     public Joiner(String separator) {
         this.seperator = separator;
     }
 
-    public void joiner(List<T> listOfElements) {
-         joinedString = listOfElements.stream()
+    public String join(List<T> listOfElements) {
+         return listOfElements.stream()
                  .map(Object::toString)
                  .collect(Collectors.joining(seperator));
-    }
-
-    @Override
-    public String toString() {
-        return joinedString;
     }
 }
