@@ -9,10 +9,10 @@ public abstract class Card {
     private String ccv;
     private BigDecimal balance = BigDecimal.ZERO;
 
-    public Card(String number, String owner) {
+    public Card(String number, String owner, String ccv) {
         this.number = number;
         this.owner = owner;
-        this.ccv = ccvGenerator();
+        this.ccv = ccv;
     }
 
     public String getNumber() {
@@ -53,14 +53,6 @@ public abstract class Card {
         } else {
             return true;
         }
-    }
-
-    private String ccvGenerator() {
-        String ccv = "0";
-        Random random = new Random();
-        ccv += random.nextInt(1, 10);
-        ccv += random.nextInt(0, 10);
-        return ccv;
     }
 
     public abstract void deposit(double amount);
