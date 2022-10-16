@@ -3,8 +3,8 @@ package io.other.java_advanced_test.exercise1;
 import java.math.BigDecimal;
 
 public class DebitCard extends Card {
-    public DebitCard(String number, String owner) {
-        super(number, owner);
+    public DebitCard(String number, String owner, String ccv) {
+        super(number, owner, ccv);
     }
 
     @Override

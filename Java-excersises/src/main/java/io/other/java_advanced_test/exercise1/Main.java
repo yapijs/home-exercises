@@ -25,13 +25,13 @@ package io.other.java_advanced_test.exercise1;
 public class Main {
     public static void main(String[] args) {
 
-        DebitCard debitCard = new DebitCard("LV12345", "Peter Smith");
+        DebitCard debitCard = new DebitCard("LV12345", "Peter Smith", "057");
         debitCard.deposit(100);
         debitCard.deposit(10050);
         System.out.println(debitCard);
         //debitCard.withdraw(100000);
 
-        CreditCard creditCard = new CreditCard("LV987654", "Donald Duck");
+        CreditCard creditCard = new CreditCard("LV987654", "Donald Duck", "012");
         creditCard.deposit(60);
         creditCard.deposit(10050);
         System.out.println(creditCard);
