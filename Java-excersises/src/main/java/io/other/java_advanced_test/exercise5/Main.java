@@ -23,12 +23,7 @@ public class Main {
     }
 
     public static <T> double partOf(List<T> list, Predicate<T> function) {
-        int numberSatisfiesCondition = 0;
-        for (T item: list) {
-            if (function.test(item)) {
-                numberSatisfiesCondition++;
-            }
-        }
-        return (double) numberSatisfiesCondition / list.size();
+        long count = list.stream().filter(function).count();
+        return (double) count / list.size();
     };
 }
