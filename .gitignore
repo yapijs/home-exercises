@@ -3,6 +3,10 @@
 */out
 */target
 
+# Idea
+*/.idea
+*/.iml
+
 # Log file
 *.log
 
