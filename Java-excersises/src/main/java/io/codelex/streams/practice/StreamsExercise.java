@@ -50,12 +50,10 @@ public class StreamsExercise {
     }
 
     public static List<String> getDistinctLetters(List<String> names) {
-        {
-            return Arrays.stream(String.join("", names)
-                    .split(""))
-                    .distinct()
-                    .toList();
-        }
+        return Arrays.stream(String.join("", names)
+                .split(""))
+                .distinct()
+                .toList();
     }
 
 
