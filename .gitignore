@@ -5,7 +5,7 @@
 
 # Idea
 */.idea
-*/.iml
+*.iml
 
 # Log file
 *.log
