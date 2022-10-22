@@ -47,7 +47,9 @@ public class AccountTest {
     }
 
     public static void transfer(Account from, Account to, double howMuch) {
-        if (from != null && to != null) {
+        if (from == null || to == null) {
+            System.out.println("Incorrect values for money transfer!");
+        } else {
             from.withdrawal(howMuch);
             to.deposit(howMuch);
         }

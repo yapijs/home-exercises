@@ -61,9 +61,6 @@ public class Dog {
     }
 
     public boolean hasSameMotherAs(Dog otherDog) {
-        if (this == otherDog) {
-            return true;
-        }
         if (otherDog == null || otherDog.mother == null) {
             return false;
         }
