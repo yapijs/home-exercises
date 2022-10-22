@@ -1,13 +1,12 @@
 package io.codelex.arrays.practice;
 
-import java.awt.*;
 import java.util.Random;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Hangman {
-    private static String[] listOfWords = {
+    private static final String[] listOfWords = {
             "remember", "juvenile", "gun", "needy", "leather", "spring", "weight", "planes",
             "knotty", "chickens", "bird", "pray", "chilly", "box", "secretary", "high", "end",
             "bucket", "possible", "dark", "extend", "suspect", "jolly", "determined", "pink",
@@ -17,7 +16,7 @@ public class Hangman {
     private static int turnsLeft;
     private static String wordToGuessHidden;
     private static String missedLetters;
-    private static Scanner scanner = new Scanner(System.in);
+    private static final Scanner scanner = new Scanner(System.in);
 
 
 
@@ -41,7 +40,6 @@ public class Hangman {
                     playGame = false;
                     break;
                 } else if (in.equals("again")) {
-                    playGame = true;
                     break;
                 } else {
                     System.out.println("Sorry, can You repeat? ");
@@ -60,16 +58,16 @@ public class Hangman {
         }
         missedLetters = "";
     }
-    public static boolean isWordGuessed() {
+    private static boolean isWordGuessed() {
         return !wordToGuessHidden.contains("_");
     }
 
-    public static void updateWordStatus(String guessedCharacter) {
+    private static void updateWordStatus(String guessedCharacter) {
         StringBuilder hiddenWordNew = new StringBuilder();
         if (wordToGuess.contains(guessedCharacter)) {
             for (int i = 0; i < wordToGuess.length(); i++) {
                 if (String.valueOf(wordToGuess.charAt(i)).equals(guessedCharacter)) {
-                    hiddenWordNew.append(String.valueOf(wordToGuess.charAt(i))).append(" ");
+                    hiddenWordNew.append(wordToGuess.charAt(i)).append(" ");
                 } else {
                     hiddenWordNew.append(wordToGuessHidden.charAt(i*2)).append(wordToGuessHidden.charAt(i*2+1));
                 }
@@ -80,7 +78,7 @@ public class Hangman {
         }
     }
 
-    public static String enterCharacter() {
+    private static String enterCharacter() {
         boolean validCharacter = false;
         String character = "";
         Pattern pattern = Pattern.compile("[a-zA-Z]");
@@ -97,7 +95,7 @@ public class Hangman {
         return character;
     }
 
-    public static void displayResult() {
+    private static void displayResult() {
         if (isWordGuessed() ) {
             System.out.println("YOU GOT IT!");
         } else {
