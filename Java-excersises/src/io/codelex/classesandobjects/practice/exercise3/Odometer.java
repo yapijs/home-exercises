@@ -2,7 +2,6 @@ package io.codelex.classesandobjects.practice.exercise3;
 
 public class Odometer {
     private int currentMileage;
-    FuelGauge fuelGauge = new FuelGauge(5);
 
     public int getCurrentMileage() {
         return currentMileage;
@@ -12,7 +11,7 @@ public class Odometer {
         this.currentMileage = currentMileage;
     }
 
-    public void carIsMoving() {
+    public void carIsMoving(FuelGauge fuelGauge) {
         currentMileage++;
         if (currentMileage > 999999) {
             currentMileage = 0;
@@ -22,9 +21,9 @@ public class Odometer {
         }
     }
 
-    public void fillGasTank(int litres) {
-        for (int i = 0; i < litres; i++) {
-            fuelGauge.addFuel();
-        }
-    }
+//    public void fillGasTank(int litres) {
+//        for (int i = 0; i < litres; i++) {
+//            fuelGauge.addFuel();
+//        }
+//    }
 }

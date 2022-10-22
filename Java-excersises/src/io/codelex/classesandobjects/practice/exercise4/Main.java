@@ -23,7 +23,7 @@ public class Main {
         Movie[] pgMovies = new Movie[movies.length];
         int index = 0;
         for (Movie m: movies) {
-            if (m.rating.equals("PG")) {
+            if (m.getRating().equals("PG")) {
                 pgMovies[index] = m;
                 index++;
             }
